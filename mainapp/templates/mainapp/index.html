@@ -1,0 +1,117 @@
+{% extends 'mainapp/base.html' %}
+{% block title %}
+    <title>Главная</title>
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <br>
+        <h2 class="text-center mb-4">Облачные сервисы - решают любые задачи.</h2>
+        <div class="row">
+
+            <div class="card col">
+                <img class="card-img-top" src="/static/img/cloud_server.png" alt="Card image cap">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-center">Веб-хостинг</h5>
+                    <p class="card-text">
+                    <table class="table">
+                        <tbody>
+                        <tr class="text-center">
+                            <th>Диск 30 GB</th>
+                        </tr>
+                        <tr class="text-center">
+                            <th>Сайты &#8734;</th>
+                        </tr>
+                        <tr class="text-center">
+                            <th>БД &#8734;</th>
+                        </tr>
+                        <tr class="text-center">
+                            <th>Канал 500 Мбит/с</th>
+                        </tr>
+                        </tbody>
+                    </table>
+                    </p>
+                    <a href="/catalog" class="btn btn-info">Смотреть тарифы</a>
+                </div>
+            </div>
+            <div class="card col">
+                <img class="card-img-top" src="/static/img/server_vds.png" alt="Card image cap">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-center">Выделенный сервер</h5>
+                    <p class="card-text">
+                    <table class="table">
+                        <tbody>
+                        <tr class="text-center">
+                            <th>Процессор 5.3 GHz</th>
+                        </tr>
+                        <tr class="text-center">
+                            <th>Диск 8 TB</th>
+                        </tr>
+                        <tr class="text-center">
+                            <th>RAM 512 GB</th>
+                        </tr>
+                        <tr class="text-center">
+                            <th>Канал 1 Гбит/с</th>
+                        </tr>
+                        </tbody>
+                    </table>
+                    </p>
+                    <a href="/catalog" class="btn btn-info">Смотреть тарифы</a>
+                </div>
+            </div>
+{#            <div class="card col">#}
+{#                <img class="card-img-top" src="/static/img/cloud_hosting.png" alt="Card image cap">#}
+{#                <div class="card-body text-center">#}
+{#                    <h5 class="card-title text-center">Virtual servers</h5>#}
+{#                    <p class="card-text">#}
+{#                    <table class="table">#}
+{#                        <tbody>#}
+{#                        <tr class="text-center">#}
+{#                            <th>Процессор 5.3 GHz</th>#}
+{#                        </tr>#}
+{#                        <tr class="text-center">#}
+{#                            <th>Диск 20 GB</th>#}
+{#                        </tr>#}
+{#                        <tr class="text-center">#}
+{#                            <th>RAM 20 GB</th>#}
+{#                        </tr>#}
+{#                        <tr class="text-center">#}
+{#                            <th>Канал 500 Мбит/с</th>#}
+{#                        </tr>#}
+{#                        </tbody>#}
+{#                    </table>#}
+{#                    </p>#}
+{#                    <a href="/catalog" class="btn btn-info">Смотреть тарифы</a>#}
+{#                </div>#}
+{#            </div>#}
+        </div>
+        <br>
+        <div class="row">
+
+            <div class="card col">
+                <img class="card-img-top" src="/static/img/ddos.png" alt="Card image cap">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-center">Защита от DDoS-атак</h5>
+                    <p class="card-text">
+                    <table class="table">
+                        <tbody>
+                        <tr class="text-center">
+                            <th>Портов: 65535</th>
+                        </tr>
+                        <tr class="text-center">
+                            <th>Протокол: TCP/UDP</th>
+                        </tr>
+                        <tr class="text-center">
+                            <th>IPv4: 1</th>
+                        </tr>
+                        <tr class="text-center">
+                            <th>Канал 10 Гбит/с</th>
+                        </tr>
+                        </tbody>
+                    </table>
+                    </p>
+                    <a href="/catalog" class="btn btn-info">Смотреть тарифы</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

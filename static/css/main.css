@@ -1,0 +1,35 @@
+.card:hover {
+    transition: 0.3s;
+    color: #212529;
+    text-decoration: none;
+    box-shadow: 0 0 10px #448aff;
+}
+
+i {
+    padding-right: 5px;
+}
+
+a.text-dark:focus, a.text-dark:hover {
+    transition: 0.3s;
+    border-radius: 5px;
+    color: #f3f3f3 !important;
+    background-color: #448aff;
+    text-decoration: none;
+}
+
+.card {
+    margin-left: 3%;
+}
+
+.card-img-top {
+    width: 10rem;
+    align-self: center;
+}
+
+img {
+    margin: 2rem;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
