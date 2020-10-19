@@ -7,6 +7,9 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name = 'Категорию'
+        verbose_name_plural = 'Категории'
 
 # Типо блюда(гор.выпечка -> сами блюда)
 class Web(models.Model):
@@ -22,10 +25,14 @@ class Web(models.Model):
     traffic = models.CharField(max_length=128)
     location = models.CharField(max_length=128)
     ddos = models.CharField(max_length=128)
-    is_active = models.BooleanField(default=True)
+    is_active = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        verbose_name = 'Веб'
+        verbose_name_plural = 'Веб'
 
 
 class Dedic(models.Model):
@@ -34,6 +41,7 @@ class Dedic(models.Model):
     name = models.CharField(max_length=128)
     desc = models.TextField(blank=True)
     prise = models.IntegerField(default=0)
+    prise_day = models.IntegerField(default=0)
     cpu = models.CharField(max_length=128)
     core = models.CharField(max_length=128)
     ram = models.CharField(max_length=128)
@@ -47,6 +55,9 @@ class Dedic(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name = 'Выделенный сервер'
+        verbose_name_plural = 'Выделенные сервера'
 
 class Vds(models.Model):
     category = models.ForeignKey(Category,
@@ -66,3 +77,7 @@ class Vds(models.Model):
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        verbose_name = 'Виртуальный сервер'
+        verbose_name_plural = 'Виртуальные сервера'
