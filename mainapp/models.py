@@ -47,6 +47,7 @@ class Dedic(models.Model):
     def __str__(self):
         return self.name
 
+
 class Vds(models.Model):
     category = models.ForeignKey(Category,
                                  on_delete=models.CASCADE)
