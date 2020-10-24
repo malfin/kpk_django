@@ -23,6 +23,7 @@ urlpatterns = [
     path('basket/', mainapp.basket, name='basket'),
 
     path('catalog/category/<int:pk>/', mainapp.catalog_page, name='catalog_page'),
+
     path('catalog/vds/<int:pk>/', mainapp.catalog_page, name='vds'),
 
     path('login/', mainapp.login),
