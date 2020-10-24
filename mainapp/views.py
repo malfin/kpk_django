@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from mainapp.models import Category
+from mainapp.models import Category, Web
 
 
 def index(request):
@@ -18,4 +18,15 @@ def catalog(request):
 def basket(request):
     return render(request, 'basket/index.html')
 
-# Create your views here.
+
+def login(request):
+    return render(request, 'login/index.html')
+
+
+def catalog_page(request, pk):
+    web = Web.objects.filter(category_id=pk)
+    context = {
+        'web': web,
+    }
+    return render(request, 'catalog/catalog_page.html', context)
+

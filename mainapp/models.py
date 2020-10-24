@@ -1,6 +1,9 @@
 from django.db import models
 
 
+# Hosting_Category
+
+
 class Category(models.Model):
     name = models.CharField(max_length=128)
 

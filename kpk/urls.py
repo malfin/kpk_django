@@ -18,8 +18,13 @@ from django.contrib import admin
 from django.urls import path
 
 urlpatterns = [
-    path('', mainapp.index),
-    path('catalog/', mainapp.catalog),
-    path('basket/', mainapp.basket),
+    path('', mainapp.index, name='index'),
+    path('catalog/', mainapp.catalog, name='catalog'),
+    path('basket/', mainapp.basket, name='basket'),
+
+    path('catalog/category/<int:pk>/', mainapp.catalog_page, name='catalog_page'),
+    path('catalog/vds/<int:pk>/', mainapp.catalog_page, name='vds'),
+
+    path('login/', mainapp.login),
     path('admin/', admin.site.urls),
 ]

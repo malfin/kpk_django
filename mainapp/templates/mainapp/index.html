@@ -30,7 +30,9 @@
                         </tbody>
                     </table>
                     </p>
-                    <a href="/catalog" class="btn btn-info">Смотреть тарифы</a>
+                    {% for item in categories %}
+                    <a href="{% url 'catalog_page' item.pk %}" class="btn btn-info">Смотреть тарифы</a>
+                    {% endfor %}
                 </div>
             </div>
             <div class="card col">
