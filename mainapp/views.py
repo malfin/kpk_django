@@ -25,8 +25,10 @@ def login(request):
 
 def catalog_page(request, pk):
     web = Web.objects.filter(category_id=pk)
+    vds = Web.objects.filter(category_id=pk)
     context = {
         'web': web,
+        'vds': vds,
     }
     return render(request, 'catalog/catalog_page.html', context)
 
