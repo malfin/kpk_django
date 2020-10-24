@@ -1,3 +1,13 @@
+.logo{
+    text-decoration: none;
+    color: #212529;
+    transition: 0.3s;
+}
+.logo:hover{
+    text-decoration: none;
+    color: #212530;
+    transition: 0.3s;
+}
 .card:hover {
     transition: 0.3s;
     color: #212529;

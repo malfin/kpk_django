@@ -6,17 +6,21 @@
 
     <div class="container">
         <br>
-    <div class="card-deck mb-3 text-center">
-    <div class="card mb-4 box-shadow">
-    <div class="card-header">
-        <h2 class="text-center mb-4">
-            {% for category in categories %}
-            <h3 class="my-0 font-weight-normal">{{ category }}</h3>
-        {% endfor %}
-        </h2>
-    </div>
-    </div>
-    </div>
+        <div class="card-deck mb-3 text-center">
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <h2 class="text-center mb-4">
+                        {% for category in categories %}
+                            <h3 class="mb-4 p-4 font-weight-normal">
+                                <br>
+                                {{ category }}
+                           <p class="p-4"><small class="text-muted">Скоро появятся новые тарифы)</small></p>
+                            </h3>
+                        {% endfor %}
+                    </h2>
+                </div>
+            </div>
+        </div>
 
         {#        <div class="card-deck mb-3 text-center">#}
         {#            <div class="card mb-4 box-shadow">#}

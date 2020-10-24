@@ -6,4 +6,3 @@ admin.site.register(Category)
 admin.site.register(Web)
 admin.site.register(Dedic)
 admin.site.register(Vds)
-
