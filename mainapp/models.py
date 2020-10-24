@@ -11,6 +11,7 @@ class Category(models.Model):
         verbose_name = 'Категорию'
         verbose_name_plural = 'Категории'
 
+
 # Типо блюда(гор.выпечка -> сами блюда)
 class Web(models.Model):
     category = models.ForeignKey(Category,
@@ -58,6 +59,7 @@ class Dedic(models.Model):
     class Meta:
         verbose_name = 'Выделенный сервер'
         verbose_name_plural = 'Выделенные сервера'
+
 
 class Vds(models.Model):
     category = models.ForeignKey(Category,
