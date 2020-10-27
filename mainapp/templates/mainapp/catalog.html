@@ -1,0 +1,30 @@
+{% extends 'mainapp/base.html' %}
+{% block title %}
+    <title>Каталог</title>
+{% endblock %}
+{% block content %}
+    <style>
+        a, a:hover {
+            text-decoration: #212529;
+            color: #212529;
+        }
+    </style>
+    <div class="container">
+        <br>
+        {% for item in categories %}
+            <div class="row">
+                <div class="card col">
+                    <img class="card-img-top" src="/static/img/cloud_server.png" alt="Card image cap">
+                    <div class="card-body text-center">
+                        <h3>
+                            <a href="{% url 'catalog_page' item.pk %}" class="card-title text-center">
+                                {{ item }}
+                            </a>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <br>
+        {% endfor %}
+    </div>
+{% endblock %}

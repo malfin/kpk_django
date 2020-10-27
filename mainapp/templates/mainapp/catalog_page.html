@@ -14,9 +14,11 @@
                         <h3 class="card-title text-center">{{ item }}</h3>
                         <table class="table">
                             <tbody>
-                            <tr class="text-center">
-                                <th>Диск 30 GB</th>
-                            </tr>
+                            {% for item in price %}
+                                <tr class="text-center">
+                                    <th>Диск 30 GB</th>
+                                </tr>
+                            {% endfor %}
                             <tr class="text-center">
                                 <th>Сайты &#8734;</th>
                             </tr>
@@ -35,34 +37,9 @@
         </div>
         <br>
         <div class="row">
-            {% for items in vds %}
-                <div class="card col">
-                    <img class="card-img-top" src="/static/img/cloud_server.png" alt="Card image cap">
-                    <div class="card-body text-center">
-                        <h3 class="card-title text-center">{{ items }}</h3>
-                        <table class="table">
-                            <tbody>
-                            <tr class="text-center">
-                                <th>Диск 30 GB</th>
-                            </tr>
-                            <tr class="text-center">
-                                <th>Сайты &#8734;</th>
-                            </tr>
-                            <tr class="text-center">
-                                <th>БД &#8734;</th>
-                            </tr>
-                            <tr class="text-center">
-                                <th>Канал 500 Мбит/с</th>
-                            </tr>
-                            </tbody>
-                        </table>
-
-                    </div>
-                </div>
-            {% endfor %}
         </div>
 
-        </div>
+    </div>
 
     </div>
 
