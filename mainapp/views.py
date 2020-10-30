@@ -19,14 +19,9 @@ def basket(request):
     return render(request, 'mainapp/basket.html')
 
 
-def login(request):
-    return render(request, 'mainapp/login.html')
-
-
 def catalog_page(request, pk):
     web = Web.objects.filter(category_id=pk)
     context = {
         'web': web,
     }
     return render(request, 'mainapp/catalog_page.html', context)
-
