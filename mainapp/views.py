@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from mainapp.models import Category, Web
+from mainapp.models import Category, Web, Dedic
 
 
 def index(request):
@@ -21,7 +21,9 @@ def basket(request):
 
 def catalog_page(request, pk):
     web = Web.objects.filter(category_id=pk)
+    dedic = Dedic.objects.filter(category_id=pk)
     context = {
         'web': web,
+        'dedic': dedic,
     }
     return render(request, 'mainapp/catalog_page.html', context)

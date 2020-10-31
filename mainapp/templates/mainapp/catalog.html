@@ -9,12 +9,11 @@
             color: #212529;
         }
     </style>
-    <div class="container">
+    <div class="container transition-fade" id="swup">
         <br>
         {% for item in categories %}
-            <div class="row">
-                <div class="card col">
-                    <img class="card-img-top" src="/static/img/cloud_server.png" alt="Card image cap">
+            <div class="card-deck">
+                <div class="card">
                     <div class="card-body text-center">
                         <h3>
                             <a href="{% url 'catalog_page' item.pk %}" class="card-title text-center">
