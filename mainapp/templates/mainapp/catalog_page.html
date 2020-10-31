@@ -10,10 +10,10 @@
             <button class="btn btn-outline-success"><i class="fas fa-arrow-left"></i>Назад</button>
         </a>
         <br>
-        <div class="row">
+        <div class="card-deck">
             {% for item in web %}
-                <div class="card col">
-                    <img class="card-img-top" src="/static/img/cloud_hosting.png" alt="Card image cap">
+                <div class="card">
+                    <img class="card-img-top" src="../../../{{ item.image }}" alt="Card image cap">
                     <div class="card-body text-center">
                         <h3 class="card-title text-center">{{ item.name }}</h3>
                         <table class="table">
@@ -50,9 +50,9 @@
             {% endfor %}
         </div>
         <br>
-        <div class="row">
+        <div class="card-deck">
             {% for item in dedic %}
-                <div class="card col">
+                <div class="card">
                     <img class="card-img-top" src="/static/img/server_vds.png" alt="Card image cap">
                     <div class="card-body text-center">
                         <h3 class="card-title text-center">{{ item.name }}</h3>

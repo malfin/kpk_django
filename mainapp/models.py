@@ -6,6 +6,8 @@ from django.db import models
 
 class Category(models.Model):
     name = models.CharField('Название категории', max_length=128)
+    image = models.ImageField('Картинка', upload_to='static/img', height_field=None, width_field=None, max_length=100,
+                              null=True)
 
     def __str__(self):
         return self.name
@@ -29,6 +31,8 @@ class Web(models.Model):
     location = models.CharField('Локация', max_length=128)
     ddos = models.CharField('Защита от ДДОС', max_length=128)
     is_active = models.BooleanField('Активный тариф')
+    image = models.ImageField('Картинка', upload_to='static/img', height_field=None, width_field=None, max_length=100,
+                              null=True)
 
     def __str__(self):
         return self.name
