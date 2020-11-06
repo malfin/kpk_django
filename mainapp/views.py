@@ -1,29 +1,35 @@
 from django.shortcuts import render
 
-from mainapp.models import Category, Web, Dedic
+from mainapp.models import Category, Hosting
 
 
 def index(request):
-    return render(request, 'mainapp/index.html')
+    context = {
+        'page_title': 'главная',
+    }
+    return render(request, 'mainapp/index.html', context)
 
 
 def catalog(request):
     categories = Category.objects.all()
     context = {
+        'page_title': 'каталог',
         'categories': categories
     }
     return render(request, 'mainapp/catalog.html', context)
 
 
 def basket(request):
-    return render(request, 'mainapp/basket.html')
+    context = {
+        'page_title': 'корзина',
+    }
+    return render(request, 'mainapp/basket.html', context)
 
 
 def catalog_page(request, pk):
-    web = Web.objects.filter(category_id=pk)
-    dedic = Dedic.objects.filter(category_id=pk)
+    web = Hosting.objects.filter(category_id=pk)
     context = {
+        'page_title': 'страница услуг',
         'web': web,
-        'dedic': dedic,
     }
     return render(request, 'mainapp/catalog_page.html', context)
