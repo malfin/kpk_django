@@ -18,7 +18,7 @@
                     <img class="card-img-top" src="{{ item.image.url }}" alt="Card image cap">
                     <div class="card-body text-center">
                         <h3>
-                            <a href="{% url 'catalog_page' item.pk %}" class="card-title text-center">
+                            <a href="{% url 'main:catalog_page' item.pk %}" class="card-title text-center">
                                 {{ item }}
                             </a>
                         </h3>
