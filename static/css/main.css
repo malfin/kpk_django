@@ -1,6 +1,7 @@
-*{
+* {
     font-family: 'Ubuntu', sans-serif;
 }
+
 .card:hover {
     transition: 0.3s;
     color: #212529;
@@ -35,4 +36,14 @@ img {
     flex-flow: column wrap;
     justify-content: flex-start;
     align-items: flex-start;
+}
+
+form {
+    padding-top: 15px;
+    margin: 0 auto;
+    width: 60%;
+}
+.form-control{
+
+    margin-bottom: 5px;
 }
