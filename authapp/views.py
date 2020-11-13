@@ -5,7 +5,6 @@ from django.urls import reverse
 
 from authapp.forms import LoginForm, RegisterForm
 
-
 def login(request):
     if request.method == 'POST':
         form = LoginForm(data=request.POST)
