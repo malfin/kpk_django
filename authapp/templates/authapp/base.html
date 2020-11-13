@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="/static/img/favicon.png"/>
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/notyf.min.css' %}">
 </head>
 <body>
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
@@ -34,9 +35,21 @@
 <script src="{% static 'js/jquery-3.2.1.slim.min.js' %}"></script>
 <script src="{% static 'js/popper.js' %}"></script>
 <script src="{% static 'js/bootstrap-material-design.js' %}"></script>
+<script src="{% static 'js/notyf.min.js' %}"></script>
 <script>
     $(document).ready(function () {
         $('body').bootstrapMaterialDesign();
+    });
+    let notyf;
+    notyf = new Notyf({
+        duration: 2000,
+        position: {
+            x: 'right',
+            y: 'top',
+        },
+    });
+    $(".edit").click(function () {
+        notyf.error('Пока что изменить данные нельзя!')
     });
 </script>
 </body>

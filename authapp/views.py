@@ -2,8 +2,8 @@ import django.contrib.auth as auth
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
-
 from authapp.forms import LoginForm, RegisterForm
+
 
 def login(request):
     if request.method == 'POST':
@@ -39,3 +39,9 @@ def register(request):
     }
     return render(request, 'authapp/register.html', content)
 
+
+def profile(request):
+    context = {
+        'page_title': 'Профиль',
+    }
+    return render(request, 'authapp/profile.html', context)
