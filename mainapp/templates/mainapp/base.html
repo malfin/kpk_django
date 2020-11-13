@@ -20,7 +20,25 @@
         <a class="p-2 text-dark" href="{% url 'main:index' %}">Главная</a>
         <a class="p-2 text-dark" href="{% url 'main:catalog' %}"><i class="fas fa-shopping-basket"></i>Каталог</a>
         <a class="p-2 text-dark" href="{% url 'basket' %}"><i class="fas fa-shopping-cart"></i>Корзина</a>
-        <a class="p-2 text-dark" href="{% url 'auth:login' %}"><i class="fas fa-sign-in-alt"></i>Войти</a>
+        {% if user.is_authenticated %}
+            <button class="btn btn-secondary dropdown-toggle text-dark" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {% if user.is_superuser %}
+                    <i class="fa fa-chess-king">{{ user.username }}</i>
+                {% else %}
+                    <i class="fa fa-user">{{ user.username }}</i>
+                {% endif %}
+            </button>
+            <div class="dropdown-menu text-dark" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#"><i class="fas fa-dice-d6 text-danger"></i>{{ user.first_name }}</a>
+                <a class="dropdown-item" href="{% url 'auth:logout' %}"><i class="fas fa-sign-in-alt"></i>Выйти</a>
+            </div>
+        {% else %}
+            <a class="p-2 text-dark" href="{% url 'auth:login' %}"><i class="fas fa-sign-in-alt"></i>Войти</a>
+            <a class="p-2 text-dark" href="{% url 'auth:register' %}"><i
+                    class="fas fa-user-check"></i>Регистрация</a>
+
+        {% endif %}
     </nav>
 
 </div>
