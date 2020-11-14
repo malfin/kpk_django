@@ -45,51 +45,12 @@
                             </tr>
                             </tbody>
                         </table>
-                           <a class="btn btn-primary" href="{% url 'basket:add' 1 %}">Заказать</a>
+                        <a class="btn btn-primary" href="{% url 'basket:add' 1 %}">Заказать</a>
                     </div>
                 </div>
             {% endfor %}
         </div>
         <br>
-        <div class="card-deck">
-            {% for item in dedic %}
-                <div class="card">
-                    <img class="card-img-top" src="/static/img/server_vds.png" alt="Card image cap">
-                    <div class="card-body text-center">
-                        <h3 class="card-title text-center">{{ item.name }}</h3>
-                        <table class="table">
-                            <tbody>
-                            <tr class="text-center">
-                                <th>Процессор: {{ item.cpu }}</th>
-                            </tr>
-                            <tr class="text-center">
-                                <th>Память: {{ item.ram }}</th>
-                            </tr>
-                            <tr class="text-center">
-                                <th>Накопитель: {{ item.disk }}</th>
-                            </tr>
-                            <tr class="text-center">
-                                <th>Трафик: {{ item.traffic }}</th>
-                            </tr>
-                            <tr class="text-center">
-                                <th>Защита от DDoS: {{ item.ddos }}</th>
-                            </tr>
-                            <tr class="text-center">
-                                <th>Локация: {{ item.location }}</th>
-                            </tr>
-                            <tr class="text-center">
-                                <th>Цена: {{ item.prise }} &#8381;/мес.</th>
-                            </tr>
-                            <tr class="text-center">
-                                <th class="small">* {{ item.desc }}</th>
-                            </tr>
-                            </tbody>
-                        </table>
-
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
     </div>
 {% endblock %}
 {#{% for item in courses %}#}
