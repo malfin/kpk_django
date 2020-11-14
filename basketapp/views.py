@@ -1,5 +1,6 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
+from django.urls import reverse
 
 from basketapp.models import HostingBasket
 from mainapp.models import Hosting
@@ -15,5 +16,5 @@ def add(request, hosting_id):
         user=request.user,
         hosting=hosting
     )
-    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
-
+    return HttpResponseRedirect(reverse('mainapp:catalog_page',
+                                        kwargs={'category_pk': hosting.category_id}))
