@@ -16,3 +16,4 @@ def add(request, hosting_id):
         hosting=hosting
     )
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
