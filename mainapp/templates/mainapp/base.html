@@ -19,7 +19,7 @@
     <nav class="my-2 my-md-0 mr-md-3">
         <a class="p-2 text-dark" href="{% url 'main:index' %}">Главная</a>
         <a class="p-2 text-dark" href="{% url 'main:catalog' %}"><i class="fas fa-shopping-basket"></i>Каталог</a>
-        <a class="p-2 text-dark" href="{% url 'basket' %}"><i class="fas fa-shopping-cart"></i>Корзина</a>
+        <a class="p-2 text-dark" href="{% url 'basketapp:index' %}"><i class="fas fa-shopping-cart"></i>Корзина</a>
         {% if user.is_authenticated %}
             <button class="btn btn-secondary dropdown-toggle text-dark" type="button" id="dropdownMenuButton"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
