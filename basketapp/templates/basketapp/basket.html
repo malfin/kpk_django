@@ -1,4 +1,5 @@
 {% extends 'mainapp/base.html' %}
+{% load static %}
 {% block title %}
     <title>Корзина</title>
 {% endblock %}
@@ -7,8 +8,21 @@
         <br>
         <div class="card">
             <div class="card-body text-center">
-                <h1>Пусто</h1>
-                <a class="p-2 text-dark" href="/catalog"><i class="fas fa-shopping-basket"></i>Перейти в каталог</a>
+                {% if object_list %}
+                    <h3 class="bg-inverse text-success">Ваш заказ:</h3>
+                    <div class="row">
+                        {% for item in object_list %}
+                            <div class="col"><h3>{{ item }}</h3> <a href="{% url 'basket:remove' item.pk %}"
+                                                                    class="btn btn-outline-danger basket_remove">удалить</a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <div class="container-show">
+                        <a class="p-2 text-dark" href="{% url 'main:catalog' %}"><i class="fas fa-shopping-basket"></i>Перейти
+                            в каталог</a>
+                    </div>
+                {% endif %}
             </div>
         </div>
     </div>

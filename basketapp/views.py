@@ -1,4 +1,4 @@
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import render
 from django.urls import reverse
 
@@ -7,7 +7,11 @@ from mainapp.models import Hosting
 
 
 def index(request):
-    return render(request, 'basketapp/basket.html')
+    items = HostingBasket.objects.filter(user=request.user)
+    context = {
+        'object_list': items,
+    }
+    return render(request, 'basketapp/basket.html', context)
 
 
 def add(request, hosting_id):
@@ -19,3 +23,13 @@ def add(request, hosting_id):
     return HttpResponseRedirect(
         reverse('mainapp:catalog_page', kwargs={'category_pk': hosting.category_id})
     )
+
+
+def remove(request, hosting_basket_id):
+    if request.is_ajax():
+        hosting = HostingBasket.objects.get(id=hosting_basket_id)
+        hosting.delete()
+        return JsonResponse({
+            'status': 'ok',
+            'text': hosting_basket_id,
+        })

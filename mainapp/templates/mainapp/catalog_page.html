@@ -45,7 +45,11 @@
                             </tr>
                             </tbody>
                         </table>
-                        <a class="btn btn-success btn-block" href="{% url 'basket:add' item.id %}">Заказать</a>
+                        {% if user.is_authenticated %}
+                            <a class="btn btn-success btn-block add" href="{% url 'basket:add' item.id %}">Заказать</a>
+                        {% else %}
+                             <a class="btn btn-success btn-block" href="{% url 'authapp:login' %}">Авторизоваться</a>
+                        {% endif %}
                     </div>
                 </div>
             {% endfor %}
