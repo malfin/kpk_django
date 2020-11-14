@@ -26,8 +26,8 @@ def basket(request):
     return render(request, 'mainapp/basket.html', context)
 
 
-def catalog_page(request, pk):
-    web = Hosting.objects.filter(category_id=pk)
+def catalog_page(request, category_pk):
+    web = Hosting.objects.filter(category_id=category_pk)
     context = {
         'page_title': 'страница услуг',
         'web': web,
