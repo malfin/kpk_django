@@ -12,7 +12,6 @@ window.onload = function () {
             url: e.target.href,
             success: function (data) {
                 if (data) {
-                    $('span').addClass('badge-primary');
                     notyf.success('Успешно добвили в корзину!');
                 } else {
                     notyf.error('Ошибка!');
@@ -29,7 +28,6 @@ window.onload = function () {
                 if (data) {
                     notyf.success('Успешно удалили!');
                     $('.col').hide('1000').remove();
-                    $('span').removeClass('badge-primary');
                 } else {
                     notyf.error('Ошибка!');
                 }
