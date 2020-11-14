@@ -16,5 +16,6 @@ def add(request, hosting_id):
         user=request.user,
         hosting=hosting
     )
-    return HttpResponseRedirect(reverse('mainapp:catalog_page',
-                                        kwargs={'category_pk': hosting.category_id}))
+    return HttpResponseRedirect(
+        reverse('mainapp:catalog_page', kwargs={'category_pk': hosting.category_id})
+    )

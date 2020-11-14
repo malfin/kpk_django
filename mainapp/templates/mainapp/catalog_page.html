@@ -12,7 +12,7 @@
         </a>
         <br>
         <div class="card-deck">
-            {% for item in web %}
+            {% for item in hosting %}
                 <div class="card">
                     <img class="card-img-top" src="{{ item.image.url }}" alt="Card image cap">
                     <div class="card-body text-center">
@@ -45,7 +45,7 @@
                             </tr>
                             </tbody>
                         </table>
-                        <a class="btn btn-primary" href="{% url 'basket:add' category.id %}">Заказать</a>
+                        <a class="btn btn-success btn-block" href="{% url 'basket:add' hosting.id %}">Заказать</a>
                     </div>
                 </div>
             {% endfor %}

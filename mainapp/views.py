@@ -19,17 +19,10 @@ def catalog(request):
     return render(request, 'mainapp/catalog.html', context)
 
 
-def basket(request):
-    context = {
-        'page_title': 'корзина',
-    }
-    return render(request, 'mainapp/basket.html', context)
-
-
 def catalog_page(request, category_pk):
-    web = Hosting.objects.filter(category_id=category_pk)
+    hosting = Hosting.objects.filter(category_id=category_pk)
     context = {
         'page_title': 'страница услуг',
-        'web': web,
+        'hosting': hosting,
     }
     return render(request, 'mainapp/catalog_page.html', context)
