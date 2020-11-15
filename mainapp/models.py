@@ -3,7 +3,7 @@ from django.db import models
 
 class Category(models.Model):
     name = models.CharField('Название категории', max_length=128)
-    image = models.ImageField('Картинка', upload_to='img', height_field=None, width_field=None, max_length=100,
+    image = models.ImageField('Картинка', upload_to='category', height_field=None, width_field=None, max_length=100,
                               null=True)
 
     def __str__(self):
@@ -29,7 +29,7 @@ class Hosting(models.Model):
     location = models.CharField('Локация', max_length=128)
     ddos = models.CharField('Защита от ДДОС', max_length=128)
     is_active = models.BooleanField('Активный тариф')
-    image = models.ImageField('Картинка', upload_to='img', height_field=None, width_field=None, max_length=100,
+    image = models.ImageField('Картинка', upload_to='hosting', height_field=None, width_field=None, max_length=100,
                               null=True)
 
     def __str__(self):

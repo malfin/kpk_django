@@ -1,9 +1,8 @@
-import json
 from abc import ABC
-
 from django.core.management import BaseCommand
+import json
 
-from mainapp.models import Category, Hosting
+from mainapp.models import Hosting, Category
 
 
 class Command(BaseCommand, ABC):
@@ -15,15 +14,15 @@ class Command(BaseCommand, ABC):
         for item in categories:
             categories_json.append(
                 {
-                    'name': item.name,
+                    'name': str(item.name),
                     'image': str(item.image),
                 }
             )
 
-        web = Hosting.objects.all()
-        web_json = []
-        for items in web:
-            web_json.append(
+        hosting = Hosting.objects.all()
+        hosting_json = []
+        for items in hosting:
+            hosting_json.append(
                 {
                     'category_name': items.category,
                     'name_tariff': items.name,
@@ -41,7 +40,7 @@ class Command(BaseCommand, ABC):
                 }
             )
 
-        with open('categories.json', 'w', encoding='utf-8') as f:
+        with open('backup/categories.json', 'w', encoding='utf-8') as f:
             json.dump(categories_json, f)
-        with open('web.json', 'w', encoding='utf-8') as f:
-            json.dump(web_json, f)
+        with open('backup/hosting.json', 'w', encoding='utf-8') as f:
+            json.dump(hosting_json, f)
