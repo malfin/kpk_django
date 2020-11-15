@@ -13,45 +13,48 @@
         <br>
         <div class="card-deck">
             {% for item in hosting %}
-                <div class="card">
-                    <img class="card-img-top" src="{{ item.image.url }}" alt="Card image cap">
-                    <div class="card-body text-center">
-                        <h3 class="card-title text-center">{{ item.name }}</h3>
-                        <table class="table">
-                            <tbody>
-                            <tr class="text-center">
-                                <th>NVMe диск: {{ item.disk }}</th>
-                            </tr>
-                            <tr class="text-center">
-                                <th>Сайт: {{ item.site }}</th>
-                            </tr>
-                            <tr class="text-center">
-                                <th>Базы данных: {{ item.db }}</th>
-                            </tr>
-                            <tr class="text-center">
-                                <th>% от ядра: {{ item.cpu }}</th>
-                            </tr>
-                            <tr class="text-center">
-                                <th>Трафик: {{ item.traffic }}</th>
-                            </tr>
-                            <tr class="text-center">
-                                <th>Локация: {{ item.location }}</th>
-                            </tr>
-                            <tr class="text-center">
-                                <th>Цена: {{ item.prise }} &#8381;/мес.</th>
-                            </tr>
-                            <tr class="text-center">
-                                <th>Защита от DDOS-Атак: {{ item.ddos }}</th>
-                            </tr>
-                            </tbody>
-                        </table>
-                        {% if user.is_authenticated %}
-                            <a class="btn btn-success btn-block add" href="{% url 'basket:add' item.id %}">Заказать</a>
-                        {% else %}
-                             <a class="btn btn-success btn-block" href="{% url 'authapp:login' %}">Авторизоваться</a>
-                        {% endif %}
+                {% if item.is_active %}
+                    <div class="card">
+                        <img class="card-img-top" src="{{ item.image.url }}" alt="Card image cap">
+                        <div class="card-body text-center">
+                            <h3 class="card-title text-center">{{ item.name }}</h3>
+                            <table class="table">
+                                <tbody>
+                                <tr class="text-center">
+                                    <th>NVMe диск: {{ item.disk }}</th>
+                                </tr>
+                                <tr class="text-center">
+                                    <th>Сайт: {{ item.site }}</th>
+                                </tr>
+                                <tr class="text-center">
+                                    <th>Базы данных: {{ item.db }}</th>
+                                </tr>
+                                <tr class="text-center">
+                                    <th>% от ядра: {{ item.cpu }}</th>
+                                </tr>
+                                <tr class="text-center">
+                                    <th>Трафик: {{ item.traffic }}</th>
+                                </tr>
+                                <tr class="text-center">
+                                    <th>Локация: {{ item.location }}</th>
+                                </tr>
+                                <tr class="text-center">
+                                    <th>Цена: {{ item.prise }} &#8381;/мес.</th>
+                                </tr>
+                                <tr class="text-center">
+                                    <th>Защита от DDOS-Атак: {{ item.ddos }}</th>
+                                </tr>
+                                </tbody>
+                            </table>
+                            {% if user.is_authenticated %}
+                                <a class="btn btn-success btn-block add"
+                                   href="{% url 'basket:add' item.id %}">Заказать</a>
+                            {% else %}
+                                <a class="btn btn-success btn-block" href="{% url 'authapp:login' %}">Авторизоваться</a>
+                            {% endif %}
+                        </div>
                     </div>
-                </div>
+                {% endif %}
             {% endfor %}
         </div>
         <br>
