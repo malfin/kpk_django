@@ -20,7 +20,9 @@ a.text-dark:focus, a.text-dark:hover {
     background-color: #448aff;
     text-decoration: none;
 }
-
+.show:active{
+    transition: 0.3s ease;
+}
 .card {
     margin-left: 3%;
 }

@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="/static/img/favicon.png"/>
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/notyf.min.css' %}">
 </head>
 <body>
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
@@ -19,7 +20,9 @@
     <nav class="my-2 my-md-0 mr-md-3">
         <a class="p-2 text-dark" href="{% url 'main:index' %}">Главная</a>
         <a class="p-2 text-dark" href="{% url 'main:catalog' %}"><i class="fas fa-shopping-basket"></i>Каталог</a>
-        <a class="p-2 text-dark" href="{% url 'basketapp:index' %}"><i class="fas fa-shopping-cart"></i>Корзина</a>
+    {% if user.is_authenticated %}
+        <a class="p-2 text-dark" href="{% url 'basketapp:index' %}"><i class="fas fa-shopping-cart"></i>Корзина {% if object_list %}<span class="badge badge-primary">{{ object_list|first }}</span>{% endif %}</a>
+    {% endif %}
         {% if user.is_authenticated %}
             <button class="btn btn-secondary dropdown-toggle text-dark" type="button" id="dropdownMenuButton"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -53,5 +56,7 @@
         $('body').bootstrapMaterialDesign();
     });
 </script>
+<script src="{% static 'js/notyf.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>

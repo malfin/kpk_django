@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from django.shortcuts import render
 
 from mainapp.models import Category, Hosting
@@ -19,17 +20,10 @@ def catalog(request):
     return render(request, 'mainapp/catalog.html', context)
 
 
-def basket(request):
-    context = {
-        'page_title': 'корзина',
-    }
-    return render(request, 'mainapp/basket.html', context)
-
-
-def catalog_page(request, pk):
-    web = Hosting.objects.filter(category_id=pk)
+def catalog_page(request, category_pk):
+    hosting = Hosting.objects.filter(category_id=category_pk)
     context = {
         'page_title': 'страница услуг',
-        'web': web,
+        'hosting': hosting,
     }
     return render(request, 'mainapp/catalog_page.html', context)
