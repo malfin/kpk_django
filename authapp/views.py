@@ -2,7 +2,7 @@ import django.contrib.auth as auth
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
-from authapp.forms import LoginForm, RegisterForm
+from authapp.forms import LoginForm, RegisterForm, ChangeForm
 
 
 def login(request):
@@ -45,3 +45,18 @@ def profile(request):
         'page_title': 'Профиль',
     }
     return render(request, 'authapp/profile.html', context)
+
+
+def edit_profile(request):
+    if request.method == 'POST':
+        form = RegisterForm(request.POST, request.FILES, instanse=request.user)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('authapp:edit_profile'))
+    else:
+        form = ChangeForm(instanse=request.user)
+    content = {
+        'page_title': 'Редактирование',
+        'form': form,
+    }
+    return render(request, 'authapp/edit.html', content)
