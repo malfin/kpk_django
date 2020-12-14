@@ -30,6 +30,6 @@ def remove(request, hosting_basket_id):
         hosting = HostingBasket.objects.get(id=hosting_basket_id)
         hosting.delete()
         return JsonResponse({
-            'status': '0',
+            'status': 'true',
             'text': hosting_basket_id,
         })

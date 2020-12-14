@@ -11,16 +11,18 @@
         <br>
         {% for item in categories %}
             <div class="card-deck">
-                <div class="card">
-                    <img class="card-img-top" src="{{ item.image.url }}" alt="Card image cap">
-                    <div class="card-body text-center">
-                        <h3>
-                            <a href="{% url 'main:catalog_page' item.pk %}" class="card-title text-center">
+                <a href="{% url 'main:catalog_page' item.pk %}" class="card-title text-center">
+                    <div class="card">
+                        <img class="card-img-top" src="{{ item.image.url }}" alt="Card image cap">
+                        <div class="card-body text-center">
+                            <h3>
+
                                 {{ item }}
-                            </a>
-                        </h3>
+
+                            </h3>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
             <br>
         {% endfor %}

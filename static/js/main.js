@@ -34,4 +34,8 @@ window.onload = function () {
             }
         })
     })
+    $('.edit').on('click', function (e) {
+        e.preventDefault();
+        notyf.error('В данный момент это не возможно сделать!')
+    })
 }
