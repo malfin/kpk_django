@@ -21,7 +21,7 @@
         <a class="p-2 text-dark" href="{% url 'main:index' %}">Главная</a>
         <a class="p-2 text-dark" href="{% url 'main:catalog' %}"><i class="fas fa-shopping-basket"></i>Каталог</a>
     {% if user.is_authenticated %}
-        <a class="p-2 text-dark" href="{% url 'basketapp:index' %}"><i class="fas fa-shopping-cart"></i>Корзина {% if object_list %}<span class="badge badge-primary">{{ object_list|first }}</span>{% endif %}</a>
+        <a class="p-2 text-dark" href="{% url 'basketapp:index' %}"><i class="fas fa-shopping-cart"></i>Корзина</a>
     {% endif %}
         {% if user.is_authenticated %}
             <button class="btn btn-secondary dropdown-toggle text-dark" type="button" id="dropdownMenuButton"

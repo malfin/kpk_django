@@ -8,7 +8,10 @@ app_name = 'mainapp'
 
 urlpatterns = [
     path('', mainapp.index, name='index'),
-    path('catalog/', mainapp.catalog, name='catalog'),
+
+    # path('catalog/', mainapp.catalog, name='catalog'),
+    path('catalog/', mainapp.CatalogListView.as_view(), name='catalog'),
+
     path('catalog/<int:category_pk>/', mainapp.catalog_page, name='catalog_page'),
 ]
 

@@ -1,7 +1,16 @@
-from django.http import JsonResponse
 from django.shortcuts import render
+from django.views.generic import ListView
 
 from mainapp.models import Category, Hosting
+
+
+class PageTitleMixin:
+    page_title = ''
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(object_list=object_list, **kwargs)
+        context['page_title'] = self.page_title
+        return context
 
 
 def index(request):
@@ -11,13 +20,28 @@ def index(request):
     return render(request, 'mainapp/index.html', context)
 
 
-def catalog(request):
-    categories = Category.objects.all()
-    context = {
-        'page_title': 'каталог',
-        'categories': categories
-    }
-    return render(request, 'mainapp/catalog.html', context)
+# def catalog(request):
+#     categories = Category.objects.all()
+#     context = {
+#         'page_title': 'каталог',
+#         'categories': categories
+#     }
+#     return render(request, 'mainapp/catalog.html', context)
+
+
+# template -> class name + suffix
+# template -> Category_list
+# mainapp/category_list.html
+
+
+class CatalogListView(PageTitleMixin, ListView):
+    model = Category
+    page_title = 'каталог'
+
+    # def get_context_data(self, *, object_list=None, **kwargs):
+    #     context = super().get_context_data(object_list=object_list, **kwargs)
+    #     context['page_title'] = 'каталог'
+    #     return context
 
 
 def catalog_page(request, category_pk):

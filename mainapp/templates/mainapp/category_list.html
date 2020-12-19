@@ -9,7 +9,7 @@
     </style>
     <div class="container">
         <br>
-        {% for item in categories %}
+        {% for item in object_list %}
             <div class="card-deck">
                 <a href="{% url 'main:catalog_page' item.pk %}" class="card-title text-center">
                     <div class="card">
