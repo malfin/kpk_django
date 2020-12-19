@@ -49,14 +49,15 @@ def profile(request):
 
 def edit_profile(request):
     if request.method == 'POST':
-        form = RegisterForm(request.POST, request.FILES, instanse=request.user)
+        form = ChangeForm(request.POST, request.FILES, instance=request.user)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse('authapp:edit_profile'))
     else:
-        form = ChangeForm(instanse=request.user)
-    content = {
-        'page_title': 'Редактирование',
+        form = ChangeForm(instance=request.user)
+
+    context = {
+        'page_title': 'редактирование',
         'form': form,
     }
-    return render(request, 'authapp/edit.html', content)
+    return render(request, 'authapp/edit.html', context)

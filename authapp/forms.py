@@ -1,7 +1,6 @@
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm
 from django.contrib.auth.models import User
-from django.forms import HiddenInput
-
+import django.forms as forms
 from authapp.models import UserProfile
 
 
@@ -35,16 +34,10 @@ class RegisterForm(UserCreationForm):
         return user
 
 
-class ChangeForm(UserCreationForm):
+class ChangeForm(UserChangeForm):
     class Meta:
         model = User
-        fields = (
-            'username',
-            'first_name',
-            'last_name',
-            'password',
-            'email',
-        )
+        fields = ('username', 'first_name', 'last_name', 'email', 'password')
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -52,7 +45,7 @@ class ChangeForm(UserCreationForm):
             item.widget.attrs['class'] = f'form-control {name}'
             item.help_text = ''
             if name == 'password':
-                item.widget = HiddenInput()
+                item.widget = forms.HiddenInput()
 
     def save(self, commit=True):
         user = super().save(commit=commit)

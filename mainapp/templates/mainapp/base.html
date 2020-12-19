@@ -33,7 +33,7 @@
                 {% endif %}
             </button>
             <div class="dropdown-menu text-dark" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="{% url 'auth:profile' %}"><i class="fas fa-dice-d6 text-danger"></i>{{ user.first_name }}</a>
+                <a class="dropdown-item" href="{% url 'auth:edit_profile' %}"><i class="fas fa-dice-d6 text-danger"></i>{{ user.first_name }}</a>
                 <a class="dropdown-item" href="{% url 'auth:logout' %}"><i class="fas fa-sign-in-alt"></i>Выйти</a>
             </div>
         {% else %}

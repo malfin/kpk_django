@@ -6,10 +6,13 @@
         <div class="container">
             <form enctype="multipart/form-data" method="post">
                 {% csrf_token %}
-                {{ form }}
+                {{ form.as_p }}
+                <input type="submit"
+                       class="btn btn-success btn-block"
+                       value="сохранить">
+                <a class="btn btn-info float-right" href="{% url 'main:index' %}">Главная</a>
             </form>
-            <br>
-            <button type="submit" class="btn btn-outline-success float-right edit">Изменить</button>
+
         </div>
     </div>
 {% endblock %}
