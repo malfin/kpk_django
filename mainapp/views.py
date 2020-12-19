@@ -20,20 +20,6 @@ def index(request):
     return render(request, 'mainapp/index.html', context)
 
 
-# def catalog(request):
-#     categories = Category.objects.all()
-#     context = {
-#         'page_title': 'каталог',
-#         'categories': categories
-#     }
-#     return render(request, 'mainapp/catalog.html', context)
-
-
-# template -> class name + suffix
-# template -> Category_list
-# mainapp/category_list.html
-
-
 class CatalogListView(PageTitleMixin, ListView):
     model = Category
     page_title = 'каталог'

@@ -8,7 +8,7 @@ class UserProfile(models.Model):
     about = models.TextField(verbose_name='Обо мне', blank=True)
 
     def __str__(self):
-        return self.user
+        return str(self.user)
 
     class Meta:
         verbose_name = 'пользователя'
