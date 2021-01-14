@@ -51,8 +51,9 @@ def edit_profile(request):
     if request.method == 'POST':
         form = ChangeForm(request.POST, request.FILES, instance=request.user)
         if form.is_valid():
-            form.save()
-            return HttpResponseRedirect(reverse('authapp:edit_profile'))
+            if request.is_ajax():
+                form.save()
+                return HttpResponseRedirect(reverse('authapp:edit_profile'))
     else:
         form = ChangeForm(instance=request.user)
 

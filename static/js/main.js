@@ -12,7 +12,7 @@ window.onload = function () {
             url: e.target.href,
             success: function (data) {
                 if (data) {
-                    notyf.success('Успешно добвили в корзину!');
+                    notyf.success('Успешно добавили в корзину!');
                 } else {
                     notyf.error('Ошибка!');
                 }
@@ -34,6 +34,20 @@ window.onload = function () {
             }
         })
     })
+    // $('.edit').on('click', function (e) {
+    //     e.preventDefault();
+    //     $.ajax({
+    //         url: e.target.href,
+    //         success: function (data) {
+    //             if (data) {
+    //                 notyf.success('Успешно изменили данные!');
+    //             } else {
+    //                 notyf.error('Ошибка!');
+    //             }
+    //
+    //         }
+    //     })
+    // })
     // $('.edit').on('click', function (e) {
     //     e.preventDefault();
     //     notyf.error('В данный момент это не возможно сделать!')
